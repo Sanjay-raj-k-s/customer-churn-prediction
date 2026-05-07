@@ -324,7 +324,7 @@ The project highlights how machine learning can help telecom companies proactive
 
 # 👨‍💻 Author
 
-Your Name
+Sanjay Raj K S 
 
 * GitHub: [https://github.com/Sanjay-raj-k-s](https://github.com/Sanjay-raj-k-s)
 * LinkedIn: [https://www.linkedin.com/in/sanjayrajks/](https://www.linkedin.com/in/sanjayrajks/)
