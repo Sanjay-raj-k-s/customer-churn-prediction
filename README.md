@@ -270,7 +270,7 @@ telecom_customer_churn_prediction.ipynb
 ```
 
 ---
-
+```text
 # 📁 Project Structure
 
 📦 customer-churn-prediction
@@ -292,7 +292,7 @@ telecom_customer_churn_prediction.ipynb
  ┣ 📄 requirements.txt
  ┣ 📄 .gitignore
  ┗ 📓 telecom_customer_churn_prediction.ipynb
-
+```
 ---
 
 # 🧠 Skills Demonstrated
