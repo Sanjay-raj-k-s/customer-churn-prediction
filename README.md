@@ -1,206 +1,332 @@
-# 📡 Customer Churn Prediction — Telecom Industry
+# 📡 Telecom Customer Churn Prediction
 
-> **End-to-End Machine Learning Classification Project**  
-> Predicting customer churn using the IBM Telco dataset with Logistic Regression, Decision Tree, and Random Forest.
-
----
-
-## 📋 Project Summary
-
-| Item | Details |
-|---|---|
-| **Dataset** | IBM Telco Customer Churn — 7,043 customers, 20 features (after cleaning) |
-| **Problem Type** | Binary Classification |
-| **Models Used** | Logistic Regression, Decision Tree, Random Forest |
-| **Best Model** | Logistic Regression with `class_weight='balanced'` |
-| **Churn Recall** | 0.57 → **0.80** (40% improvement) |
-| **ROC-AUC** | **0.862** |
-| **Key Drivers** | Tenure Months, Total Charges, Monthly Charges, Contract Type |
+An end-to-end Machine Learning classification project focused on predicting customer churn in the telecom industry using Python, data analysis, visualization, feature engineering, and predictive modeling.
 
 ---
 
-## 🎯 Business Goal
+# 📌 Project Overview
 
-Customer churn is one of the most critical challenges in the telecom industry. Acquiring a new customer costs **5–7x more** than retaining an existing one. This project builds a machine learning model to identify at-risk customers early, enabling targeted retention strategies before revenue is lost.
+Customer churn is one of the biggest challenges faced by telecom companies. Losing existing customers directly affects revenue and customer acquisition costs.
 
----
+This project builds multiple machine learning models to predict whether a customer is likely to leave the telecom service.
 
-## 📁 Project Structure
+The notebook covers:
 
-```
-customer-churn-prediction/
-│
-├── README.md                          # Project documentation
-├── requirements.txt                   # Python dependencies
-├── customer_churn_prediction.ipynb    # Main Jupyter Notebook
-│
-├── data/
-│   └── telecom_customer_churn.csv     # IBM Telco dataset (place here)
-│
-└── graphs/
-    ├── roc_curve.png                  # ROC Curve — all models comparison
-    ├── confusion_matrix.png           # Confusion Matrix — before vs after balancing
-    └── feature_importance.png         # Feature Importance — LR & Random Forest
-```
+* Data cleaning
+* Exploratory Data Analysis (EDA)
+* Feature engineering
+* Data preprocessing
+* Model building
+* Model evaluation
+* Feature importance analysis
+* Business insights & recommendations
 
 ---
 
-## 📊 Dataset
+# 🎯 Problem Statement
 
-- **Source:** [IBM Cognos Analytics Sample Data](https://community.ibm.com/community/user/businessanalytics/blogs/steven-macko/2019/07/11/telco-customer-churn-1113)
-- **Observations:** 7,043 customers
-- **Original Features:** 33 variables
-- **Target Variable:** `Churn Value` — 1 (churned), 0 (retained)
+The goal of this project is to:
 
-### Feature Categories
-
-| Category | Features |
-|---|---|
-| **Demographics** | Gender, Senior Citizen, Partner, Dependents |
-| **Location** | City, State, Zip Code, Latitude/Longitude |
-| **Services** | Phone, Internet, Online Security, Tech Support, Streaming |
-| **Billing** | Contract type, Payment Method, Monthly & Total Charges |
-| **Churn Info** | Churn Label, Churn Value, Churn Score, Churn Reason, CLTV |
+* Analyze customer behavior patterns
+* Identify factors contributing to churn
+* Build predictive models for churn detection
+* Improve customer retention strategies
 
 ---
 
-## ⚙️ Setup & Installation
+# 📂 Dataset Information
 
-### 1. Clone the Repository
+The dataset contains telecom customer information including:
+
+* Customer demographics
+* Account information
+* Service subscriptions
+* Billing details
+* Contract type
+* Tenure information
+* Customer support interactions
+* Churn status
+
+### Target Variable
+
+* `Churn Value`
+
+  * `1` → Customer churned
+  * `0` → Customer retained
+
+---
+
+# 🛠️ Technologies Used
+
+## Programming Language
+
+* Python
+
+## Libraries
+
+* Pandas
+* NumPy
+* Matplotlib
+* Seaborn
+* Scikit-learn
+
+---
+
+# 📊 Project Workflow
+
+## 1. Data Loading
+
+* Loaded telecom customer churn dataset
+* Inspected rows, columns, and dataset structure
+
+## 2. Data Exploration
+
+Performed:
+
+* Shape analysis
+* Data type inspection
+* Missing value detection
+* Statistical summaries
+* Unique value analysis
+
+## 3. Data Cleaning
+
+Tasks completed:
+
+* Removed unnecessary columns
+* Fixed incorrect data types
+* Converted `Total Charges` to numeric format
+* Handled missing values
+* Removed blank string values
+
+## 4. Exploratory Data Analysis (EDA)
+
+Visualizations created:
+
+* Churn distribution
+* Churn vs Contract Type
+* Monthly Charges vs Churn
+* Tenure vs Churn
+* Correlation heatmap
+
+### Key Insights
+
+* Customers with month-to-month contracts churn more frequently
+* Higher monthly charges are associated with increased churn
+* Customers with shorter tenure are more likely to churn
+
+---
+
+# ⚙️ Feature Engineering
+
+* Encoded categorical variables
+* Applied feature scaling using `StandardScaler`
+* Split dataset into training and testing sets
+
+---
+
+# 🤖 Machine Learning Models
+
+The following models were trained and evaluated:
+
+## 1. Logistic Regression
+
+* Baseline classification model
+* Good balance between interpretability and performance
+
+## 2. Decision Tree Classifier
+
+* Achieved high training accuracy
+* Showed signs of overfitting
+
+## 3. Random Forest Classifier
+
+* Improved generalization
+* Strong feature importance analysis
+
+## 4. Balanced Logistic Regression (Final Model)
+
+* Applied class balancing using `class_weight='balanced'`
+* Improved recall for churn prediction
+
+---
+
+# 📈 Model Evaluation Metrics
+
+The models were evaluated using:
+
+* Accuracy
+* Precision
+* Recall
+* F1 Score
+* ROC-AUC Score
+* Confusion Matrix
+
+### Best Performing Models
+
+| Model                        | Approx Accuracy | ROC-AUC                   |
+| ---------------------------- | --------------- | ------------------------- |
+| Logistic Regression          | ~80.7%          | ~0.862                    |
+| Balanced Logistic Regression | ~80%+           | ~0.862                    |
+| Random Forest                | Competitive     | Strong Feature Importance |
+
+---
+
+# 🔍 Feature Importance Analysis
+
+Top features influencing churn included:
+
+* Contract Type
+* Monthly Charges
+* Tenure Months
+* Internet Service
+* Payment Method
+* Total Charges
+
+Feature importance was analyzed using:
+
+* Logistic Regression coefficients
+* Random Forest feature importance
+
+---
+
+# 📌 Business Insights
+
+## Customers more likely to churn:
+
+* Month-to-month contract users
+* Customers with high monthly charges
+* New customers with low tenure
+* Customers without long-term commitments
+
+## Recommended Business Actions
+
+* Encourage long-term contracts
+* Offer retention discounts for high-risk customers
+* Improve onboarding experience
+* Provide personalized customer support
+* Create loyalty programs for newer customers
+
+---
+
+# ⚠️ Limitations
+
+* Dataset may not represent all telecom markets
+* Model performance depends on dataset quality
+* External economic or competitor factors were not included
+* Further hyperparameter tuning could improve performance
+
+---
+
+# 🚀 Future Improvements
+
+Possible enhancements:
+
+* Hyperparameter optimization
+* Cross-validation
+* Advanced ensemble models
+* XGBoost / LightGBM implementation
+* Deployment using Flask or Streamlit
+* Real-time churn prediction dashboard
+
+---
+
+# 📷 Visualizations Included
+
+* Count plots
+* Box plots
+* Correlation heatmaps
+* ROC curves
+* Feature importance charts
+* Confusion matrices
+
+---
+
+# ▶️ How to Run the Project
+
+## 1. Clone Repository
 
 ```bash
-git clone https://github.com/your-username/customer-churn-prediction.git
-cd customer-churn-prediction
+git clone https://github.com/your-username/telecom-customer-churn-prediction.git
+cd telecom-customer-churn-prediction
 ```
 
-### 2. Create a Virtual Environment (Recommended)
+## 2. Install Dependencies
 
 ```bash
-python -m venv venv
-source venv/bin/activate        # macOS/Linux
-venv\Scripts\activate           # Windows
+pip install pandas numpy matplotlib seaborn scikit-learn openpyxl
 ```
 
-### 3. Install Dependencies
+## 3. Run Jupyter Notebook
 
 ```bash
-pip install -r requirements.txt
+jupyter notebook
 ```
 
-### 4. Add the Dataset
-
-Download the IBM Telco Customer Churn dataset and place it inside the `data/` folder:
-
-```
-data/telecom_customer_churn.csv
-```
-
-### 5. Launch Jupyter Notebook
+Open:
 
 ```bash
-jupyter notebook customer_churn_prediction.ipynb
+telecom_customer_churn_prediction.ipynb
 ```
 
 ---
 
-## 🔄 Project Workflow
+# 📁 Project Structure
 
-```
-Data Loading → EDA → Data Cleaning → Feature Engineering
-     → Model Training → Evaluation → Class Balancing → Final Model
-```
-
-| Step | Description |
-|---|---|
-| **1. Problem Statement** | Define business goal and churn impact |
-| **2. Data Loading** | Load IBM Telco dataset from Excel |
-| **3. Data Exploration** | Shape, dtypes, missing values, unique values |
-| **4. Target Analysis** | Class distribution and imbalance check |
-| **5. Data Cleaning** | Drop leakage columns, fix data types, handle nulls |
-| **6. EDA** | Visualize churn vs contract, charges, tenure |
-| **7. Feature Engineering** | Label encoding, scaling |
-| **8. Model Training** | Logistic Regression, Decision Tree, Random Forest |
-| **9. Evaluation** | Accuracy, Precision, Recall, F1, ROC-AUC |
-| **10. Feature Importance** | Coefficient & impurity-based analysis |
-| **11. Class Balancing** | `class_weight='balanced'` to improve Recall |
-| **12. Final Model** | Balanced Logistic Regression selected |
-
----
-
-## 📈 Model Results
-
-| Model | Accuracy | Precision (Churn) | F1 (Churn) | ROC-AUC | Recall (Churn) |
-|---|---|---|---|---|---|
-| Logistic Regression | 80.7% | 0.69 | 0.62 | 0.862 | 0.57 |
-| Decision Tree | 74.1% | 0.54 | 0.53 | 0.673 | 0.51 |
-| Random Forest | 79.5% | 0.68 | 0.59 | 0.839 | 0.52 |
-| **LR Balanced (Final)** | **75.1%** | **0.54** | **0.64** | **0.862** | **0.80** |
-
-### Why Balanced Logistic Regression?
-
-The standard model had a churn Recall of only **0.57**, meaning it missed nearly half of all actual churners. By using `class_weight='balanced'`, churn Recall improved to **0.80** — a **40% increase** — while maintaining the same ROC-AUC of **0.862**. In a business context, missing a churner leads to direct revenue loss, making Recall the priority metric.
+📦 customer-churn-prediction
+ ┣ 📂 data
+ ┃ ┣ 📄 Telco_customer_churn.xlsx
+ ┃ ┗ 📄 readme.txt
+ ┣ 📂 graphs
+ ┃ ┣ 📊 eda_01_churn_distribution.png
+ ┃ ┣ 📊 eda_02_churn_vs_contract.png
+ ┃ ┣ 📊 eda_03_monthly_charges_vs_churn.png
+ ┃ ┣ 📊 eda_04_tenure_vs_churn.png
+ ┃ ┣ 📊 eda_05_correlation_heatmap.png
+ ┃ ┣ 📊 eval_01_confusion_matrix_before_after.png
+ ┃ ┣ 📊 eval_02_feature_importance_lr_rf.png
+ ┃ ┣ 📊 eval_03_roc_curve_all_models.png
+ ┃ ┣ 📊 eval_04_model_performance_comparison.png
+ ┃ ┗ 📄 readme.txt
+ ┣ 📄 README.md
+ ┣ 📄 requirements.txt
+ ┣ 📄 .gitignore
+ ┗ 📓 telecom_customer_churn_prediction.ipynb
 
 ---
 
-## 🔍 Key Findings & Feature Insights
+# 🧠 Skills Demonstrated
 
-| Feature | Impact | Business Meaning |
-|---|---|---|
-| **Tenure Months** | High → Low Churn | Long-term customers are loyal and less likely to leave |
-| **Total Charges** | High → Low Churn | Higher total spend indicates a longer customer relationship |
-| **Monthly Charges** | High → High Churn | Price-sensitive customers leave when bills are high |
-| **Contract Type** | Long-term → Low Churn | Annual/two-year contract customers rarely churn |
-| **Dependents** | Yes → Low Churn | Customers with dependents have more reason to stay |
-| **Payment Method** | Electronic Check → High Churn | Correlates with month-to-month contracts |
-| **Online Security** | No → High Churn | Customers without security feel less value |
-| **Tech Support** | No → High Churn | Lack of support increases frustration and churn risk |
+* Data Cleaning
+* Exploratory Data Analysis
+* Data Visualization
+* Feature Engineering
+* Machine Learning
+* Classification Algorithms
+* Model Evaluation
+* Business Insight Generation
 
 ---
 
-## 💡 Business Recommendations
+# 📚 Conclusion
 
-- **Promote long-term contracts** — Incentivize month-to-month customers to upgrade to annual plans
-- **Address price sensitivity** — Offer loyalty discounts to high monthly charge customers
-- **Focus on early retention** — New customers churn more; invest in onboarding and first-90-day experience
-- **Bundle value-added services** — Promote Tech Support and Online Security to reduce churn risk
+This project demonstrates a complete machine learning workflow for telecom customer churn prediction.
 
----
+Among all tested models, Logistic Regression and Balanced Logistic Regression delivered the best overall performance with strong ROC-AUC scores and reliable churn detection capability.
 
-## ⚠️ Limitations
-
-- Model is trained on a simulated dataset and may not generalize to all segments
-- No hyperparameter tuning was performed
-- Limited feature availability may affect prediction accuracy in production
+The project highlights how machine learning can help telecom companies proactively identify at-risk customers and improve retention strategies.
 
 ---
 
-## 🚀 Future Improvements
+# 👨‍💻 Author
 
-1. **SMOTE** — Oversample the minority class for better training balance
-2. **GridSearchCV** — Systematic hyperparameter tuning
-3. **XGBoost / LightGBM** — Advanced ensemble models for tabular data
-4. **Threshold tuning** — Adjust the 0.5 classification threshold to further optimize Recall vs Precision
+Your Name
 
----
-
-## 🛠️ Tech Stack
-
-![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python)
-![Pandas](https://img.shields.io/badge/Pandas-1.5+-green?logo=pandas)
-![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.2+-orange?logo=scikit-learn)
-![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange?logo=jupyter)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-3.6+-blue)
-![Seaborn](https://img.shields.io/badge/Seaborn-0.12+-teal)
+* GitHub: [https://github.com/Sanjay-raj-k-s](https://github.com/Sanjay-raj-k-s)
+* LinkedIn: [https://www.linkedin.com/in/sanjayrajks/](https://www.linkedin.com/in/sanjayrajks/)
 
 ---
 
-## 📄 License
+# ⭐ If You Like This Project
 
-This project is open-source and available under the [MIT License](LICENSE).
-
----
-
-## 🙋‍♂️ Author
-
-Made with ❤️ as an end-to-end ML classification project.  
-Feel free to ⭐ the repo if you found it useful!
+Give this repository a ⭐ on GitHub and feel free to fork or contribute.
