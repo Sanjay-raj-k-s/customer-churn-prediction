@@ -270,9 +270,10 @@ telecom_customer_churn_prediction.ipynb
 ```
 
 ---
-```bash
+
 # 📁 Project Structure
 
+```text
 📦 customer-churn-prediction
  ┣ 📂 data
  ┃ ┣ 📄 Telco_customer_churn.xlsx
