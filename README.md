@@ -270,7 +270,7 @@ telecom_customer_churn_prediction.ipynb
 ```
 
 ---
-```text
+```bash
 # 📁 Project Structure
 
 📦 customer-churn-prediction
