@@ -164,6 +164,13 @@ The models were evaluated using:
 
 ### Best Performing Models
 
+| Model | Accuracy |Precision (Churn)|F1 Score (Churn)| ROC-AUC | Recall (Churn) | Verdict |
+|---|---|---|---|---|---|---|
+| Logistic Regression | 80.7% |0.69|0.62| 0.862 | 0.57 | Strong baseline |
+| Decision Tree | 74.1% |0.54|0.53| 0.673 | 0.51 | Overfit, weak |
+| Random Forest | 79.5% |0.68|0.59| 0.839 | 0.52 | Good but low recall |
+| **Logistic Regression (Balanced)** | 75.1% |0.54|0.64| 0.862 | 0.80 | Same AUC, higher Recall, best for business |
+
 | Model                        | Approx Accuracy | ROC-AUC                   |
 | ---------------------------- | --------------- | ------------------------- |
 | Logistic Regression          | ~80.7%          | ~0.862                    |
